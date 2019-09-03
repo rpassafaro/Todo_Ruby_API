@@ -5,14 +5,14 @@ class ItemsController < ApplicationController
         @items = Todo.find(params[:todo_id]).items
         json_response(@items)
     end
-    
+
     def create
         puts params
         @item = Item.create!(item_params)
         json_response(@item, :created)
     end
 
-    # private
+    private
 
     def item_params
         #whitelist params

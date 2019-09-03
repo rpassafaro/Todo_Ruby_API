@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_01_082915) do
+ActiveRecord::Schema.define(version: 2019_09_03_173809) do
+
+  create_table "boards", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -26,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_09_01_082915) do
     t.string "created_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "board_id"
   end
 
   add_foreign_key "items", "todos"
